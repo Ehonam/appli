@@ -7,15 +7,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" /> <!-- Bootstrap CSS, ensemble de class CSS pré fait (comme ça, même pas besoin de fichier CSS) -->
     <title>Récapitulatif des produits</title>
 </head>
 <body>
+    <nav> <!--Permettre à l'utilisateur d'aller sur la page index.php à tout moment, à l’aide d’une barre de navigation -->
+        <ul>
+            <li><a href="index.php">Ajouter un produit</a></li>
+        </ul>
+    </nav>
+
     <?php
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
         echo "<p>Aucun produit en session...</p>";
     } else {
-        echo "<table>",
-                "<thead>",
+        echo "<table class='table table-striped table-hover'>",
+                "<thead class='table-dark'>",
                     "<tr>",
                         "<th>#</th>",
                         "<th>Nom</th>",
@@ -45,5 +52,7 @@
     
     } /* ne pas oublier l'accolade de fin */
     ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
 </body>
-</html>
+</html><p>Nombre de produits en session: <?php echo count($_SESSION['products']); ?></p>
