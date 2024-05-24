@@ -21,5 +21,6 @@
 
     header('Location: index.php'); /* redirige vers la page d'accueil La page qui l'emploie ne doit pas avoir émis un début de réponse avant header() (afficher du HTML, appeler les fonctions echo() ou print() ou un autre header()…) sous peine de perturber la réponse à émettre au client*/
     
-    
-?> 
+
+
+?>
