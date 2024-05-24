@@ -32,7 +32,8 @@
                     "</tr>",
                 "</thead>",
                 "<tbody>";
-    $totalGeneral = 0;
+    $totalGeneral = 0; /* initialisation des variables $totalGeneral a 0 */
+    $totalQuantité = 0; /* initialisation des variables et $totalQuantité a 0 */
      
     foreach($_SESSION['products'] as $index => $product) {
         echo "<tr>",
@@ -41,8 +42,10 @@
                 "<td>", number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                 "<td>", $product['qtt']."</td>",
                 "<td>", number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                "</tr>";
-        $totalGeneral+= $product['total'];
+                "<td><a href='traitement.php?delete=$index'>Supprimer</a></td>",
+             "</tr>";
+        $totalGeneral+= $product['total']; /* $totalGeneral = $totalGeneral + $product['total'] */
+        $totalQuantité+= $product['qtt']; /* $totalQuantité = $totalQuantité + $product['qtt'] */
     }
     echo    "<tr>",
             "<td colspan='4'>Total genéral : </td>",
@@ -50,9 +53,17 @@
             "</tr>",
             "</tbody>";
     
+    echo    "<td><strong><a href='traitement.php?delete=all'>Tout supprimer</a></strong></td>";
+
+                    
+
+ 
+    
     } /* ne pas oublier l'accolade de fin */
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
+<p>Nombre de produits présents en session :  <?php echo number_format($totalQuantité, 0, ",", "&nbsp;")."&nbsp;"; ?></p> <!-- afficher le nombre de produit en session -->
 </body>
-</html><p>Nombre de produits en session: <?php echo count($_SESSION['products']); ?></p>
+
+</html>
