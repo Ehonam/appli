@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Ajouter un produit</h1>
-    <form action="traitement.php" method="post">
+    <form action="traitement.php" method="post"> /* formulaire de renseignement produits */
         <p>
             <label>
                 Nom du produit :
