@@ -9,14 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="css/style.css">
     <title>Récapitulatif des produits</title>
 </head>
 <body>
 
 <ul class="navbar">
-                <li><a href="index.php">Ajouter un produit</a></li>
+                <li><a href="index.php" style="color:blue;">Ajouter un produit</a></li>
 </ul>
+<h1><center>Récapitulatif des produits</center></h1>
 
 <?php
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
@@ -39,22 +40,21 @@
     $totalQuantité = 0; /* initialisation des variables et $totalQuantité a 0 */
      
     foreach($_SESSION['products'] as $index => $product) {
-        echo "<tr>",
+    echo    "<tr>",
                 "<td>", $index + 1, "</td>",
                 "<td>", $product['name'], "</td>",
                 "<td>", number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-
                 "<td><a class='btn btn-danger'href='traitement.php?action=down-qtt&id=$index'><i class='fa-solid fa-minus'></i></a></td>",
                 "<td>".$product['qtt']."</td>",
                 "<td><a class='btn btn-success' href='traitement.php?action=up-qtt&id=$index'><i class='fa-solid fa-plus'></i></a></td>",
                 "<td>", number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                "<td><a href='traitement.php?delete=$index'>Supprimer</a></td>",
-             "</tr>";
+                "<td><a href='traitement.php?delete=$index'>Supprimer</a></td>",             
+            "</tr>";
         $totalGeneral+= $product['total']; /* $totalGeneral = $totalGeneral + $product['total'] */
         $totalQuantité+= $product['qtt']; /* $totalQuantité = $totalQuantité + $product['qtt'] */
     }
     echo    "<tr>",
-            "<td colspan='4'>Total genéral : </td>",
+            "<td colspan='6'>Total genéral : </td>",
             "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
             "</tr>",
             "</tbody>";
@@ -66,9 +66,7 @@
     
     } /* ne pas oublier l'accolade de fin */
     ?>
-        </main>
-        
-    </div>
+      
 
     <p>Nombre de produits présents en session :  <?php echo number_format($totalQuantité, 0, ",", "&nbsp;")."&nbsp;"; ?></p> <!-- afficher le nombre de produit en session -->
 
