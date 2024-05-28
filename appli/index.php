@@ -19,8 +19,8 @@ session_start();
     <div id="wrapper" style=color:green;">
 
     <nav> <!--Permettre à l'utilisateur d'aller sur la page recap.php à tout moment, à l’aide d’une barre de navigation -->
-        <ul>
-            <li><a href="recap.php" style="color:white;">Voir le récapitulatif</a></li>
+        <ul class="navbar">
+            <li><a href="recap.php" style="color:white;"><b>Voir le récapitulatif</b></a></li>
         </ul>
     </nav>
 
@@ -86,8 +86,6 @@ session_start();
         </main>
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>
