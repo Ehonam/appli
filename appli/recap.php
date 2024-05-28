@@ -59,7 +59,7 @@
             "</tr>",
             "</tbody>";
     
-    echo    "<td><strong><a href='traitement.php?action=deleteall&id=index'>Tout supprimer</a></strong></td>";
+    echo    "<td><strong><a href='traitement.php?action=clear'>Tout supprimer</a></strong></td>";
 
   
  
@@ -69,6 +69,7 @@
       
 
     <p>Nombre de produits présents en session :  <?php echo number_format($totalQuantité, 0, ",", "&nbsp;")."&nbsp;"; ?></p> <!-- afficher le nombre de produit en session -->
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </body>
 </html>
