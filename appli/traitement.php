@@ -9,7 +9,7 @@
         switch($_GET['action']){
 
             case "add":
-                 // Si le bouton submit a été presser par l'utilisateur, alors les données sont pris en compte
+                 // Si le bouton submit a été pressé par l'utilisateur, alors les données sont prises en compte
                 if(isset($_POST['submit'])){
 
                     // Ces filtres sont à mettre dans la partie back, ils rajoutent une sécurité et ainsi ils ne peuvent etre édités dans le DevTool du navigateur du client
@@ -35,7 +35,7 @@
 
                         // Array push
                         $_SESSION['products'][] = $product;
-                        $_SESSION["message"] = "Produit ajouté avec succes";
+                        $_SESSION["message"] = "Produit ajouté avec succès";
                         header("Location: index.php");
                     } else {
                         $_SESSION["error"] = "Erreur : veuillez saisir le nom ainsi que le prix du produit";
@@ -45,14 +45,14 @@
 
                 break;
             case "clear":
-                unset($_SESSION["products"]);
-                $_SESSION["message"] = "Les produits ont bien été supprimer";
+                unset($_SESSION["products"][$_GET['id']]);
+                $_SESSION["message"] = "Les produits ont bien été supprimés";
                 header("Location: recap.php");
                 break;
         
             case "delete":
                 unset($_SESSION["products"][$_GET['id']]);
-                $_SESSION["message"] = "Le produit a bien été supprimer";
+                $_SESSION["message"] = "Le produit a bien été supprimé";
                 header("Location: recap.php");
                 break;
 
