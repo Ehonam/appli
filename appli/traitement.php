@@ -45,7 +45,7 @@
 
                 break;
             case "clear":
-                unset($_SESSION["products"][$_GET['id']]);
+                unset($_SESSION["products"]);                 
                 $_SESSION["message"] = "Les produits ont bien été supprimés";
                 header("Location: recap.php");
                 break;
@@ -79,7 +79,7 @@
         }
    
     } else {
-        // On va rediriger le client directement vers la page indiqué pour éviter qu'il est accès à cette page
+        // On va rediriger le client directement vers la page indiquée pour éviter qu'il ait accès à cette page
         header("Location: index.php");
 
     }
