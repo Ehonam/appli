@@ -15,7 +15,7 @@
 <body>
 
 <ul class="navbar">
-                <li><a href="index.php" style="color:blue;">Ajouter un produit</a></li>
+                <li><a href="index.php" style="color:green;"><b>Ajouter un produit</b></a></li>
 </ul>
 <h1><center>Récapitulatif des produits</center></h1>
 
@@ -48,18 +48,18 @@
                 "<td>".$product['qtt']."</td>",
                 "<td><a class='btn btn-success' href='traitement.php?action=up-qtt&id=$index'><i class='fa-solid fa-plus'></i></a></td>",
                 "<td>", number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                "<td><a href='traitement.php?delete=$index'>Supprimer</a></td>",             
+                "<td><a href='traitement.php?action=delete&id=$index'>Supprimer</a></td>",  
             "</tr>";
         $totalGeneral+= $product['total']; /* $totalGeneral = $totalGeneral + $product['total'] */
         $totalQuantité+= $product['qtt']; /* $totalQuantité = $totalQuantité + $product['qtt'] */
     }
     echo    "<tr>",
-            "<td colspan='6'>Total genéral : </td>",
+            "<td colspan='6'>Total général : </td>",
             "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
             "</tr>",
             "</tbody>";
     
-    echo    "<td><strong><a href='traitement.php?delete=all'>Tout supprimer</a></strong></td>";
+    echo    "<td><strong><a href='traitement.php?action=deleteall&id=index'>Tout supprimer</a></strong></td>";
 
   
  
@@ -69,9 +69,6 @@
       
 
     <p>Nombre de produits présents en session :  <?php echo number_format($totalQuantité, 0, ",", "&nbsp;")."&nbsp;"; ?></p> <!-- afficher le nombre de produit en session -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Bootstrap CSS, ensemble de class CSS pré fait (comme ça, même pas besoin de fichier CSS) -->
     
 </body>
 </html>
